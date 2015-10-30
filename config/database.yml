@@ -23,5 +23,5 @@ test:
 production:
   database: findainstructor_production
   adapter: postgresql
-  timeout: 5000
+  encoding: unicode
   pool: 5
