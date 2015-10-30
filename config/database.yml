@@ -25,3 +25,4 @@ production:
   adapter: postgresql
   host: localhost
   username: user
+  pool: 5
