@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Findainstructor</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to("findainstructor",:root,:class=>"navbar-brand") %>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"> 
+        <ul class="nav navbar-nav pull-right">
+            <li><%= link_to("Home",:root, id:"home_link") %></li>
+            <li><%= link_to("Getting started",:getting_started, id:"getting_started_link") %> </li>    
+            <%= link_to("Search Instructors",:search, id:"search_link",:class=>"btn btn-primary navbar-btn pull-left") %>
+         <% if logged_in? %>
+            <%= link_to("Log out",:logout, id:"log_in_link", :class=>"btn btn-default navbar-btn pull-left", :style=>"margin-left:5px") %>
+        <% else %> 
+            <%= link_to("Log in",:login, id:"log_in_link", :class=>"btn btn-default navbar-btn pull-left", :style=>"margin-left:5px") %>
+        <%end%>
+        </ul> 
+     </div>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<p id="notice"><%= notice %></p>
+<p id="alert"><%= alert %></p>
+<%= yield %>
+
+    <hr>
+        <div class="text-center center-block">
+            <p class="txt-railway">- FINDAINSTRUCTOR.COM -</p>
+            <br />
+                <a href="https://www.facebook.com/bootsnipp"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
+	            <a href="https://twitter.com/bootsnipp"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
+	            <a href="https://plus.google.com/+Bootsnipp-page"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>
+	            <a href="mailto:bootsnipp@gmail.com"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
+</div>
+    <hr>
+
+</body>
+</html>
