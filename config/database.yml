@@ -21,7 +21,11 @@ test:
   database: db/test.sqlite3
 
 production:
-  database: findainstructor_production
+  host: ec2-54-217-202-109.eu-west-1.compute.amazonaws.com
+  database: dc0tth1pns9huf
+  user: jszlthuaocpuwj
+  port: 5432
+  password: iCFlfLY9WLAxOjN4sop6nZOsMd
   adapter: postgresql
   encoding: unicode
   pool: 5
