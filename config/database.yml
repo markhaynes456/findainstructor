@@ -21,8 +21,7 @@ test:
   database: db/test.sqlite3
 
 production:
-  database: app-dev
+  database: findainstructor_production
   adapter: postgresql
-  host: localhost
-  username: user
+  timeout: 5000
   pool: 5
