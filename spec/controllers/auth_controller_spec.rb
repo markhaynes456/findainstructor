@@ -14,7 +14,7 @@ RSpec.describe AuthController, type: :controller do
 
   it("#Create Login Success should redirect to search") do
     post :create, :user=>{:email=>"markhaynes456@gmail.com",:password=>"password"}
-    expect(response).to_not(redirect_to(:search))
+    expect(response).to(redirect_to(:search))
   end
 
   it("#Create Login Failure username/password should redirect to login") do

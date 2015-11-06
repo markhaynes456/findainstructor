@@ -1,5 +1,170 @@
+<div class="container-fluid">
 <h1 id="user_edit_title">User#edit</h1>
 
 <%= form_for(@user) do |f| %>
-  <%= f.text_field(:first_name) %>
+
+  <div class="form-group has-feedback">
+    <%= f.label(:first_name) %>
+    <%= f.text_field(:first_name,:class=>"form-control has_success") %>
+    <span class="form-control-feedback"></span>
+  </div>
+
+  <div class="form-group has-feedback">
+    <%= f.label(:last_name) %>
+    <%= f.text_field(:last_name,:class=>"form-control has_success") %>
+    <span class="form-control-feedback"></span>
+  </div>
+
+  <div class="form-group has-feedback">
+    <%= f.label(:email) %>
+    <%= f.text_field(:email,:class=>"form-control has_success") %>
+    <span class="form-control-feedback"></span>
+  </div>
+
+  <div class="form-group has-feedback">
+    <%= f.label(:email) %>
+    <%= f.text_field(:email,:class=>"form-control has_success") %>
+    <span class="form-control-feedback"></span>
+  </div>
+
+  <% if is_instructor? %>
+
+    <div class="form-group has-feedback">
+      <%= f.label(:profile) %>
+      <%= f.text_area(:profile,:class=>"form-control has_success") %>
+      <span class="form-control-feedback"></span>
+    </div>
+
+<div class="row">
+<h3> Career Highlights </h3>
+<div class="form-group col-md-6 has-feedback">
+      <%= f.label(:started_teaching) %>
+      <%= f.date_field(:started_teaching,:class=>"form-control has_success",in: 0..5000,step:1) %>
+  <span class="form-control-feedback"></span>
+</div>
+<div class="form-group col-md-6 has-feedback">
+      <%= f.label(:students_taught) %>
+      <%= f.number_field(:students_taught,:class=>"form-control has_success",in: 0..5000,step:1) %>
+  <span class="form-control-feedback"></span>
+</div>
+</div>
+
+<div class="row">
+<h3> Pass Rates </h3>
+<div class="form-group col-md-6 has-feedback">
+      <%= f.label(:first_pass_rate) %>
+      <%= f.number_field(:first_pass_rate,:class=>"form-control has_success",in: 0.0..1.0,step:0.01) %>
+  <span class="form-control-feedback"></span>
+</div>
+<div class="form-group col-md-6 has-feedback">
+      <%= f.label(:second_pass_rate) %>
+      <%= f.number_field(:second_pass_rate,:class=>"form-control has_success",in: 0.0..1.0,step:0.01) %>
+  <span class="form-control-feedback"></span>
+</div>
+</div>
+
+<h3> Availabillity </h3>
+<div class="row">
+<div class="form-group col-md-6 has-feedback">
+      <%= f.label(:working_hours_monday_start) %>
+      <%= f.time_field(:working_hours_monday_start,:class=>"form-control has_success") %>
+  <span class="form-control-feedback"></span>
+</div>
+<div class="form-group col-md-6 has-feedback">
+      <%= f.label(:working_hours_monday_end) %>
+      <%= f.time_field(:working_hours_monday_end, :class=>"form-control has_success") %>
+  <span class="form-control-feedback"></span>
+</div>
+</div>
+
+<div class="row">
+<div class="form-group col-md-6 has-feedback">
+      <%= f.label(:working_hours_tuesday_start) %>
+      <%= f.time_field(:working_hours_tuesday_start,:class=>"form-control has_success") %>
+  <span class="form-control-feedback"></span>
+</div>
+<div class="form-group col-md-6 has-feedback">
+      <%= f.label(:working_hours_tuesday_end) %>
+      <%= f.time_field(:working_hours_friday_end, :class=>"form-control has_success") %>
+  <span class="form-control-feedback"></span>
+</div>
+</div>
+
+<div class="row">
+<div class="form-group col-md-6 has-feedback">
+      <%= f.label(:working_hours_wednesday_start) %>
+      <%= f.time_field(:working_hours_wednesday_start,:class=>"form-control has_success") %>
+  <span class="form-control-feedback"></span>
+</div>
+<div class="form-group col-md-6 has-feedback">
+      <%= f.label(:working_hours_wednesday_end) %>
+      <%= f.time_field(:working_hours_wednesday_end, :class=>"form-control has_success") %>
+  <span class="form-control-feedback"></span>
+</div>
+</div>
+
+<div class="row">
+<div class="form-group col-md-6 has-feedback">
+      <%= f.label(:working_hours_thursday_start) %>
+      <%= f.time_field(:working_hours_thursday_start,:class=>"form-control has_success") %>
+  <span class="form-control-feedback"></span>
+</div>
+<div class="form-group col-md-6 has-feedback">
+      <%= f.label(:working_hours_thursday_end) %>
+      <%= f.time_field(:working_hours_thursday_end, :class=>"form-control has_success") %>
+  <span class="form-control-feedback"></span>
+</div>
+</div>
+
+<div class="row">
+<div class="form-group col-md-6 has-feedback">
+      <%= f.label(:working_hours_friday_start) %>
+      <%= f.time_field(:working_hours_friday_start,:class=>"form-control has_success") %>
+  <span class="form-control-feedback"></span>
+</div>
+<div class="form-group col-md-6 has-feedback">
+      <%= f.label(:working_hours_friday_end) %>
+      <%= f.time_field(:working_hours_friday_end, :class=>"form-control has_success") %>
+  <span class="form-control-feedback"></span>
+</div>
+</div>
+
+<div class="row">
+<div class="form-group col-md-6 has-feedback">
+      <%= f.label(:working_hours_saturday_start) %>
+      <%= f.time_field(:working_hours_saturday_start,:class=>"form-control has_success") %>
+  <span class="form-control-feedback"></span>
+</div>
+<div class="form-group col-md-6 has-feedback">
+      <%= f.label(:working_hours_saturday_end) %>
+      <%= f.time_field(:working_hours_saturday_end, :class=>"form-control has_success") %>
+  <span class="form-control-feedback"></span>
+</div>
+</div>
+
+<div class="row">
+<div class="form-group col-md-6 has-feedback">
+      <%= f.label(:working_hours_sunday_start) %>
+      <%= f.time_field(:working_hours_sunday_start,:class=>"form-control has_success") %>
+  <span class="form-control-feedback"></span>
+</div>
+<div class="form-group col-md-6 has-feedback">
+      <%= f.label(:working_hours_sunday_end) %>
+      <%= f.time_field(:working_hours_sunday_end, :class=>"form-control has_success") %>
+  <span class="form-control-feedback"></span>
+</div>
+</div>
+
+    <div class="form-group has-feedback">
+      <%= f.label(:hourly_rate) %>
+      <%= f.number_field(:hourly_rate,:class=>"form-control has_success",in: 0..5000,step:1) %>
+      <span class="form-control-feedback"></span>
+    </div>
+
+
+
+
+  <% end %>
+  <%= f.submit("Update Profile") %>
 <% end %>
+</div>
