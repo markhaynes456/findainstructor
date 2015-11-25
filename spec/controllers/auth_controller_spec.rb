@@ -8,7 +8,7 @@ RSpec.describe AuthController, type: :controller do
   end
 
   it("#Login") do
-    get :login
+    get :sign_in
     expect(response).to(have_http_status(:success)) 
   end
 
@@ -17,7 +17,7 @@ RSpec.describe AuthController, type: :controller do
     expect(response).to(redirect_to(:search))
   end
 
-  it("#Create Login Failure username/password should redirect to login") do
+  it("#Create Login Failure username/password should redirect to sign_in") do
     post :create, :user=>{:email=>"markhaynes456i7@gmail.com",:password=>"password"}
     expect(response).to(redirect_to(:login))
   end

@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)  
+    @user = User.new(user_params)
     if @user.save
       redirect_to(:search,:notice=>"Account Created")
     else
@@ -17,19 +17,30 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find_by(id:params[:id])
+    @user = set_user
   end
 
   def update
-
+    @user = set_user
+    if @user.update!(user_params)
+      redirect_to(:user, :notice=>"Profile has been saved")
+    else
+      redirect_to(:new_user, :notice=>"Error saving Profile")
+    end
   end
 
   def show
+    @user = set_user
+  end
 
+private
+
+  def set_user
+    User.find(params[:id])
   end
 
   def user_params
-    params.require(:user).permit(:first_name,:last_name,:email,:password,:instructor)
+    params.require(:user).permit(:first_name,:last_name,:email,:instructor,:profile, :password)
   end
 
 end

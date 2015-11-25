@@ -1,0 +1,1 @@
+var search_data = {"index":{"searchIndex":["rails"],"longSearchIndex":[""],"info":[["rails","","rails.html","",""]]}};

@@ -1,13 +1,13 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This application is to help driving instructors find work by helping connect them with students who are looking for great instructors.
 
-Things you may want to cover:
 
-* Ruby version
+I am trying to acheive the following
 
-* System dependencies
+* 100% test coverage
+
+*
 
 * Configuration
 

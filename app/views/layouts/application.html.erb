@@ -24,8 +24,10 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"> 
         <ul class="nav navbar-nav pull-right">
             <li><%= link_to("Home",:root, id:"home_link") %></li>
+         <% if !logged_in? %>
             <li><%= link_to("Getting started",:getting_started, id:"getting_started_link") %> </li>    
-            <%= link_to("Search Instructors",:search, id:"search_link",:class=>"btn btn-primary navbar-btn pull-left") %>
+         <% end %>
+         <%= link_to("Search Instructors",:search, id:"search_link",:class=>"btn btn-primary navbar-btn pull-left") %>
          <% if logged_in? %>
             <%= link_to("Log out",:logout, id:"log_in_link", :class=>"btn btn-default navbar-btn pull-left", :style=>"margin-left:5px") %>
             <%= link_to("Update Profile",edit_user_path(user_id), id:"log_in_link", :class=>"btn btn-default navbar-btn pull-left", :style=>"margin-left:5px") %>

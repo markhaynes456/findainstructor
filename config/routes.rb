@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :users
   root 'home#index'
   get 'search/'=>'home#search'
-  get 'login/'=>'auth#login' 
+  get 'login/'=>'auth#sign_in'
   get 'logout/'=>'auth#destroy'
   get 'getting_started/'=>'users#new'
   # The priority is based upon order of creation: first created -> highest priority.

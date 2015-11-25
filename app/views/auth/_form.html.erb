@@ -1,5 +1,5 @@
 <div class="container auth_form">
-<%= form_for(@user,html:{"data-toggle":"validator"},:url => :auth) do |f| %>
+<%= form_for(@user,html:{"data-toggle":"validator"},:url => auth_path) do |f| %>
 <div class="form-group has-feedback">
   <%= f.label(:email) %>
   <%= f.email_field(:email,:class=>"form-control has-feedback",placeholder:"jog@blogs.com",:required=>true) %>

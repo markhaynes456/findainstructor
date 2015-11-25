@@ -1,13 +1,13 @@
 class AuthController < ApplicationController
 
-  def login
+  def sign_in
    @user = User.new
   end
 
   def create
     @user = User.find_by(email: user_params[:email])
     if @user and @user.authenticate(user_params[:password])    
-      session[:findainstructor] = @user.id
+      log_in(@user)
       redirect_to(:search, :notice=>"Success: Logged in")
     else
       redirect_to(:login, :notice=>"Error: Wrong password or username, please try again")
@@ -15,7 +15,7 @@ class AuthController < ApplicationController
   end
 
   def destroy
-    session[:findainstructor] = nil
+    log_out
     redirect_to(:root)
   end
 
@@ -27,7 +27,6 @@ class AuthController < ApplicationController
     @user = User.find_by(email:user_params[:email])
     if @user
       @user.password_reset
-      puts @user.password      #email stuff 
       redirect_to(:login,:notice=>"Email sent with password information")
     else
       redirect_to(:auth_reset_password,:notice=>"Invalid email address")
@@ -37,4 +36,15 @@ class AuthController < ApplicationController
   def user_params
     params.require(:user).permit(:email,:password)
   end
+
+private
+
+  def log_in(user)
+    session[:findainstructor] = user.id
+  end
+
+  def log_out
+    session[:findainstructor] = nil
+  end
+
 end
